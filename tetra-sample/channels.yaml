@@ -1,0 +1,15 @@
+channels:
+  - id: C001-VPN
+    label: VPN Tunnel between them
+    nodeA: net-SCDA
+    nodeB: net-ra-dmz
+    direction: bidirectional
+    criticality: normal
+    initiation: programmatic
+    tags: []
+    startEdge: right
+    endEdge: left
+    startStandoff: 10
+    endStandoff: 100
+    type: network_ip
+    status: online

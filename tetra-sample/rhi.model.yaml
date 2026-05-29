@@ -1,0 +1,105 @@
+blockdiagram:
+  id: santos-starlink
+  label: Starlink Well Comms
+  description: OT Architecture Diagram for Starlink Well Comms
+  layout: horizontal
+  members:
+    - id: g-L3
+      label: Level 3 Zones
+      type: group
+      layout: vertical
+      hidden: false
+      matchSiblingSize: false
+      members:
+        - id: z-ot
+          label: OT Servers
+          type: zone
+          layout: horizontal
+          matchSiblingSize: false
+          members:
+            - id: dev-new-01
+              label: SCADA Server A
+              type: device
+              image: server
+              networks:
+                - id: net-SCDA
+            - id: net-SCDA
+              label: SCADA Network
+              type: network
+    - id: g-l3.5
+      label: DMZ Zones
+      type: group
+      layout: vertical
+      hidden: false
+      matchSiblingSize: false
+      members:
+        - id: z-PI-DMZ
+          label: PI DMZ
+          type: zone
+          layout: vertical
+          matchSiblingSize: false
+          members:
+            - id: dev-new-03
+              label: PI Collector
+              type: device
+              image: satellite-1
+              networks:
+                - id: net-ra-dmz
+        - id: z-File
+          label: File
+          type: zone
+          layout: vertical
+          matchSiblingSize: false
+          members: []
+        - id: z-ra-dmz
+          label: RA DMZ
+          type: zone
+          layout: horizontal
+          matchSiblingSize: false
+          members:
+            - id: grp-fw
+              label: FW
+              type: group
+              layout: vertical
+              hidden: false
+              matchSiblingSize: false
+              members: []
+            - id: g-serv
+              label: Servers
+              type: group
+              layout: horizontal
+              hidden: false
+              matchSiblingSize: false
+              members:
+                - id: net-ra-dmz
+                  label: RA DMZ Network
+                  type: network
+                - id: dev-new-02
+                  label: jump host
+                  type: device
+                  image: server
+                  networks:
+                    - id: net-ra-dmz
+files:
+  - '**/model/*.yaml'
+  - channels.yaml
+  - flows.yaml
+zoneColourDefs:
+  - id: IT
+    colour: SteelBlue
+  - id: PAAS
+    colour: CornflowerBlue
+  - id: External-Untrusted
+    colour: DarkMagenta
+  - id: External-Semitrusted
+    colour: DarkSlateBlue
+  - id: SAAS
+    colour: CornflowerBlue
+  - id: OT-IT-DMZ
+    colour: CadetBlue
+  - id: OT-L3
+    colour: MediumSeaGreen
+  - id: OT-L1
+    colour: SeaGreen
+  - id: OT-L1-DMZ
+    colour: Olive

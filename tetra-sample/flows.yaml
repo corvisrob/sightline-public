@@ -1,0 +1,20 @@
+flows:
+  - id: F001
+    label: Accessing Shit
+    nodeA: dev-new-01
+    nodeB: dev-new-02
+    direction: bidirectional
+    criticality: normal
+    initiation: programmatic
+    path:
+      - id: net-SCDA
+        via: '*'
+      - id: net-ra-dmz
+        via: C001-VPN
+      - id: dev-new-02
+        via: '*'
+    tags: []
+    startStandoff: 10
+    endStandoff: 10
+    type: system
+    informationType: system
